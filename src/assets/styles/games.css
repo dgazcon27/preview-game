@@ -1,0 +1,109 @@
+.containerGame {
+  position: relative;
+}
+
+.titleGame {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 25%;
+}
+
+.cardImage {
+  background: #006cb2;
+  padding: 1em;
+  width: 13em;
+  height: 13em;
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardImage img {
+  width: 11em;
+  height: auto;
+}
+
+.containerResponse {
+  background: #7eb8f9;
+  width: 15em;
+  height: 4em;
+  margin-top: 1em;
+  border-radius: 1em;
+  box-shadow: 0px 3px 6px 2px #2c65ac;
+}
+
+.boxWords {
+  z-index: 1;
+  width: 15em;
+  margin-top: 13px;
+  border-radius: 1em;
+  box-shadow: 0px 3px 6px 2px #48ab0f;
+  background: #52c211;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+}
+
+.containerBox {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3em;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2em;
+}
+
+.headerBoxIcon {
+  width: 6em;
+  height: 6em;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.headerBoxIcon img {
+  width: 6em;
+}
+
+.drag-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  bottom: 18px;
+}
+
+.item {
+  cursor: pointer;
+}
+
+.active {
+  z-index: 100;
+}
+
+.iconCheck, .iconCancel {
+  z-index: 5;
+  height: auto;
+  width: 7.3em;
+  position: relative;
+  bottom: 4.3em;
+  right: 0.7em;
+  object-fit: cover;
+  border-radius: 1em;
+}
+
+.iconCancel {
+  box-shadow: 0px 2px 8px 1px #d04161;
+}
+
+.iconCheck {
+  box-shadow: 0px 2px 8px 1px #faac00;
+}
+
+/*# sourceMappingURL=games.css.map */
