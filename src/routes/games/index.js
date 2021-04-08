@@ -1,30 +1,50 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef, useContext, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+
 import DragComponent from "../../components/shared/DragComponent";
 import {
   iconBack,
   logo,
   background,
   iconSound,
-  cancelIcon,
-  checkIcon,
 } from "../../utils/imagesResources";
 import { data } from "../../utils/mocks";
 
-import { abeja, arbol } from "../../utils/imagesGames";
-
 import "../../assets/styles/games.css";
 import "../../assets/styles/main.css";
-import BoardComponent from "../../components/shared/BoardComponent";
+import ResponseComponent from "../../components/shared/ResponseComponent";
+
+import { GameContext } from "../../context/GameContext";
 
 const title = "Coloca la palabra al frente de cada imagen correspondiente";
 const Games = () => {
-  const [state, setState] = useState({
-    statusWord1: null,
-    statusWord2: null,
-  });
+  const { state } = useContext(GameContext);
 
+  const [position, setPosition] = useState(0);
+  let history = useHistory();
+  const [statusWord, setStatusWord] = useState({
+    word1: false,
+    word2: false,
+  });
   const boxResponse1 = useRef(null);
   const boxResponse2 = useRef(null);
+
+  const list = data[position];
+
+  useEffect(() => {
+    if (statusWord.word1 && statusWord.word2) {
+      // setList(data[position + 1]);
+      if (position + 1 < data.length) {
+        setPosition(position + 1);
+        setStatusWord({
+          word1: false,
+          word2: false,
+        });
+      } else {
+        history.push("congratulations");
+      }
+    }
+  }, [statusWord, position, history]);
 
   return (
     <div className="containerGame">
@@ -33,61 +53,59 @@ const Games = () => {
         <div className="headerBoxIcon">
           <img alt="iconBack" src={iconBack} />
         </div>
-        <div className="headerBoxIcon">
+        <div className="titleGame">
+          <img src={iconSound} alt="iconSound" />
+          <h2>{title}</h2>
+        </div>
+        <div className="headerBoxIcon headerRightBox">
+          <div className="pointsBox">
+            <p>P{state.points}</p>
+          </div>
           <img src={logo} width="width: 5em" alt="logo" />
         </div>
       </header>
-      <div className="titleGame">
-        <img src={iconSound} alt="iconSound" />
-        <h2>{title}</h2>
-      </div>
+
       <div className="containerBox">
-        <div>
+        <div className="containerOptions">
           <div className="cardImage">
-            <img src={arbol} alt="arbol" />
+            <img src={list.word1.image} alt={list.word1.name} />
           </div>
-          <div
-            ref={boxResponse1}
-            data-word="arbol"
-            className="containerResponse"
-            data-container="response1"
-          ></div>
-          <img
-            alt="result"
-            src={state.statusWord1 ? checkIcon : cancelIcon}
-            className={state.statusWord1 ? "iconCheck" : "iconCancel"}
+          <ResponseComponent
+            reference={boxResponse1}
+            word={list.word1.name}
+            styles="containerResponse"
+            position="word1"
           />
         </div>
         <div className="containerWords">
           <DragComponent
-            word="abeja"
+            word={list.word2.name}
             divResponse={[boxResponse1, boxResponse2]}
+            setStatusWord={setStatusWord}
+            statusWord={statusWord}
           >
             <img src={iconSound} alt="iconSound" />
-            <h3>Abeja</h3>
+            <h3>{list.word2.name}</h3>
           </DragComponent>
           <DragComponent
-            word="arbol"
+            word={list.word1.name}
             divResponse={[boxResponse1, boxResponse2]}
+            setStatusWord={setStatusWord}
+            statusWord={statusWord}
           >
             <img src={iconSound} alt="iconSound" />
-            <h3>Arbol</h3>
+            <h3>{list.word1.name}</h3>
           </DragComponent>
         </div>
-        <div>
+        <div className="containerOptions">
           <div className="cardImage">
-            <img src={abeja} alt="abeja" />
+            <img src={list.word2.image} alt={list.word2.name} />
           </div>
-          <div
-            ref={boxResponse2}
-            data-word="abeja"
-            className="containerResponse"
-            data-container="response1"
-          ></div>
-          <img
-            alt="result"
-            src={state.statusWord2 ? checkIcon : cancelIcon}
-            className={state.statusWord2 ? "iconCheck" : "iconCancel"}
+          <ResponseComponent
+            reference={boxResponse2}
+            word={list.word2.name}
+            styles="containerResponse"
+            position="word2"
           />
         </div>
       </div>

@@ -1,0 +1,77 @@
+@use 'base'
+
+.container-sup
+    display: flex
+    justify-content: center
+
+.container-first
+    background: base.$koalaBackground
+    border-radius: 0 0 50% 50%
+    position: fixed
+    width: 120%
+    right: -11%
+
+.container-second
+    display: flex
+    align-items: flex-end
+    background: white
+    justify-content: center
+
+.logo
+    position: absolute
+    max-width: 350px
+    height: auto
+    width: 100%
+    bottom: 56%
+
+.text-box
+    margin-bottom: 4em
+    p
+        font-size: 4em
+        color: base.$fontColorGrey1
+
+@media screen and (max-width: 1024px)
+
+@media screen and ( max-width:  780px)
+    .logo
+        max-width: 300px
+        width: 52%
+
+    .text-box
+        p
+            font-size: 3em
+
+@media screen and ( max-width:  480px)
+    .logo
+        width: 45%
+        bottom: 60% !important
+
+    .container-first
+        width: 109%
+        right: -5%
+
+    .text-box
+        p
+            font-size: 3em
+
+@media screen and (orientation: landscape)
+    .container-first
+        background: base.$koalaBackground
+        border-radius: 0 50% 50% 0 !important
+        position: fixed
+        width: 50%
+        left: 0
+    .logo
+        left: 13%
+        bottom: 22%
+    .container-sup
+        justify-content: flex-end
+    .container-second
+        align-items: center
+        margin-right: 3em
+    .text-box
+        margin-bottom: 0
+
+@media screen and ( max-width:  1024px) and (orientation: landscape)
+    .logo
+        bottom: 35%

@@ -1,10 +1,12 @@
 import React from "react";
 import Routes from "./routes";
-
+import { GameContextProvider } from "./context/GameContext";
 function App() {
   return (
     <div>
-      <Routes />
+      <GameContextProvider>
+        <Routes />
+      </GameContextProvider>
     </div>
   );
 }
