@@ -1,25 +1,18 @@
-import React, { useRef, useContext, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-import DragComponent from "../../components/shared/DragComponent";
-import {
-  iconBack,
-  logo,
-  background,
-  iconSound,
-} from "../../utils/imagesResources";
+import { iconSound } from "../../utils/imagesResources";
+
+import DragComponent from "../../components/games/DragComponent";
+import ResponseComponent from "../../components/games/ResponseComponent";
+import Header from "../../components/shared/Header";
 import { data } from "../../utils/mocks";
 
 import "../../assets/styles/games.css";
 import "../../assets/styles/main.css";
-import ResponseComponent from "../../components/shared/ResponseComponent";
-
-import { GameContext } from "../../context/GameContext";
 
 const title = "Coloca la palabra al frente de cada imagen correspondiente";
 const Games = () => {
-  const { state } = useContext(GameContext);
-
   const [position, setPosition] = useState(0);
   let history = useHistory();
   const [statusWord, setStatusWord] = useState({
@@ -48,23 +41,13 @@ const Games = () => {
 
   return (
     <div className="containerGame">
-      <img alt="background" src={background} className="backgroundImage" />
-      <header>
-        <div className="headerBoxIcon">
-          <img alt="iconBack" src={iconBack} />
-        </div>
-        <div className="titleGame">
+      <Header></Header>
+      <div className="titleGame">
+        <h2>
           <img src={iconSound} alt="iconSound" />
-          <h2>{title}</h2>
-        </div>
-        <div className="headerBoxIcon headerRightBox">
-          <div className="pointsBox">
-            <p>P{state.points}</p>
-          </div>
-          <img src={logo} width="width: 5em" alt="logo" />
-        </div>
-      </header>
-
+          {title}
+        </h2>
+      </div>
       <div className="containerBox">
         <div className="containerOptions">
           <div className="cardImage">

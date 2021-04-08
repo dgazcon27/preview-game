@@ -1,5 +1,10 @@
+@font-face {
+  font-family: GhoticB;
+  src: url("../fonts/GOTHICB.TTF");
+}
 .containerGame {
   position: relative;
+  padding-top: 1em;
 }
 
 .titleGame {
@@ -9,6 +14,12 @@
   top: 0;
   left: 25%;
   width: 45%;
+}
+.titleGame h2 {
+  display: flex;
+}
+.titleGame h2 img {
+  margin-right: 10px;
 }
 
 .cardImage {
@@ -139,6 +150,57 @@ header {
   font-size: 2em;
   font-weight: bold;
   color: white;
+}
+
+@media screen and (max-width: 992px) {
+  .titleGame {
+    margin-top: 1em;
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 65%;
+  }
+
+  .titleGame {
+    width: 80%;
+    position: initial !important;
+    text-align: center;
+    margin: auto;
+  }
+  .titleGame h2 {
+    display: flex;
+  }
+}
+@media screen and (max-width: 480px) {
+  .headerBoxIcon {
+    width: 30% !important;
+  }
+
+  .titleGame {
+    left: 0;
+    font-size: 14px !important;
+    top: 8em;
+    justify-content: center;
+  }
+  .titleGame h2 {
+    font-size: 1em;
+  }
+
+  .containerWords {
+    position: absolute;
+    bottom: -16em;
+  }
+
+  .containerResponse {
+    height: 5em;
+  }
+
+  .iconCancel, .iconCheck {
+    width: 8em;
+    left: -10px;
+    bottom: 0;
+  }
 }
 
 /*# sourceMappingURL=games.css.map */

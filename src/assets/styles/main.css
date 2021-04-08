@@ -1,3 +1,32 @@
+@font-face {
+  font-family: GhoticB;
+  src: url("../fonts/GOTHICB.TTF");
+}
+html {
+  background: #ffeb88;
+}
+
+body {
+  font-size: 100%;
+  font-family: GhoticB;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 0.9em;
+}
+
 .backgroundImage {
   /* Set rules to fill background */
   min-height: 100%;
@@ -10,6 +39,36 @@
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+@media screen and (max-width: 1200px) {
+  body {
+    font-size: 80%;
+  }
+
+  .backgroundImage {
+    left: 50%;
+    /* 50% */
+    margin-left: -512px;
+  }
+}
+@media screen and (max-width: 992px) {
+  body {
+    font-size: 70%;
+  }
+
+  header {
+    height: 10em;
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 65%;
+  }
+
+  header {
+    padding: 0;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
