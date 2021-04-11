@@ -17,9 +17,10 @@
 }
 .titleGame h2 {
   display: flex;
+  font-size: 1.5em;
 }
 .titleGame h2 img {
-  margin-right: 10px;
+  padding-right: 0.5em;
 }
 
 .cardImage {
@@ -44,7 +45,7 @@
 .containerResponse {
   background: #7eb8f9;
   width: 15em;
-  height: 4em;
+  height: 5em;
   margin-top: 1em;
   border-radius: 1em;
   box-shadow: 0px 3px 6px 2px #2c65ac;
@@ -62,6 +63,11 @@
   justify-content: space-evenly;
   align-items: center;
   color: white;
+  height: 5em;
+}
+.boxWords h3 {
+  font-size: 2.2em;
+  margin: 12px 0;
 }
 
 .containerBox {
@@ -76,20 +82,8 @@ header {
   align-items: center;
   padding: 0 1em;
 }
-
-.headerBoxIcon {
-  width: 15%;
-  height: 6em;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-}
-.headerBoxIcon img {
+header img {
   width: 6em;
-}
-
-.headerRightBox {
-  width: 25% !important;
 }
 
 .drag-container {
@@ -109,14 +103,14 @@ header {
 
 .iconCheck, .iconCancel {
   z-index: 5;
-  height: auto;
   width: 7.3em;
   position: absolute;
   bottom: -5px;
-  left: 0;
   object-fit: cover;
   border-radius: 1em;
   display: none;
+  height: 5.5em;
+  left: -1em;
 }
 
 .iconCancel {
@@ -154,7 +148,14 @@ header {
 
 @media screen and (max-width: 992px) {
   .titleGame {
-    margin-top: 1em;
+    margin-top: 2em;
+    left: 22%;
+    width: 55%;
+  }
+
+  .iconCancel, .iconCheck {
+    height: 5.5em;
+    left: -1em;
   }
 }
 @media screen and (max-width: 768px) {
@@ -170,21 +171,27 @@ header {
   }
   .titleGame h2 {
     display: flex;
+    font-size: 1.5em;
+  }
+
+  .iconCancel, .iconCheck {
+    height: 5.7em;
+    width: 6em;
+    left: -10px;
+    bottom: -4px;
+  }
+}
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .containerBox {
+    margin-bottom: 3em;
   }
 }
 @media screen and (max-width: 480px) {
-  .headerBoxIcon {
-    width: 30% !important;
-  }
-
   .titleGame {
     left: 0;
     font-size: 14px !important;
     top: 8em;
     justify-content: center;
-  }
-  .titleGame h2 {
-    font-size: 1em;
   }
 
   .containerWords {
@@ -195,11 +202,35 @@ header {
   .containerResponse {
     height: 5em;
   }
+}
+@media screen and (max-width: 325px) {
+  .titleGame {
+    width: 82%;
+  }
+
+  .cardImage {
+    width: 12em;
+    height: 12em;
+    margin: auto;
+  }
+
+  .containerResponse {
+    width: 14em;
+  }
+
+  .boxWords {
+    width: 14em;
+  }
+  .boxWords h3 {
+    font-size: 2.2em;
+    margin: 12px 0;
+  }
 
   .iconCancel, .iconCheck {
-    width: 8em;
-    left: -10px;
+    width: 6em;
+    left: -6px;
     bottom: 0;
+    height: 5.2em;
   }
 }
 

@@ -17,8 +17,9 @@ $box-shadow: 0px 3px 6px 2px
 
     h2
         display: flex
+        font-size: 1.5em
         img
-            margin-right: 10px
+            padding-right: .5em
 
 .cardImage
     background: base.$cardColor
@@ -40,7 +41,7 @@ $box-shadow: 0px 3px 6px 2px
 .containerResponse
     background: base.$responseBoxColor
     width: 15em
-    height: 4em
+    height: 5em
     margin-top: 1em
     border-radius: $border-radius-item
     box-shadow: $box-shadow base.$shadowBoxColor
@@ -57,6 +58,11 @@ $box-shadow: 0px 3px 6px 2px
     justify-content: space-evenly
     align-items: center
     color: white
+    height: 5em
+
+    h3
+        font-size: 2.2em
+        margin: 12px 0
 
 .containerBox
     display: flex
@@ -69,18 +75,8 @@ header
     align-items: center
     padding: 0 1em
 
-.headerBoxIcon
-    width: 15%
-    height: 6em
-    justify-content: center
-    display: flex
-    align-items: center
-
     img
         width: 6em
-
-.headerRightBox
-    width: 25% !important
 
 .drag-container
     position: relative
@@ -96,14 +92,14 @@ header
 
 %result-icon-shared
     z-index: 5
-    height: auto
     width: 7.3em
     position: absolute
     bottom: -5px
-    left: 0
     object-fit: cover
     border-radius: 1em
     display: none
+    height: 5.5em
+    left: -1em
 
 .iconCancel
     @extend %result-icon-shared
@@ -138,7 +134,13 @@ header
 
 @media screen and (max-width: 992px)
     .titleGame
-        margin-top: 1em
+        margin-top: 2em
+        left: 22%
+        width: 55%
+
+    .iconCancel, .iconCheck
+        height: 5.5em
+        left: -1em
 
 @media screen and (max-width: 768px)
     body
@@ -151,19 +153,24 @@ header
         margin: auto
         h2
             display: flex
+            font-size: 1.5em
+
+    .iconCancel, .iconCheck
+        height: 5.7em
+        width: 6em
+        left: -10px
+        bottom: -4px
+
+@media screen and (max-width: 768px) and (orientation: landscape)
+    .containerBox
+        margin-bottom: 3em
 
 @media screen and (max-width: 480px)
-    .headerBoxIcon
-        width: 30% !important
-
     .titleGame
         left: 0
         font-size: 14px !important
         top: 8em
         justify-content: center
-
-        h2
-            font-size: 1em
 
     .containerWords
         position: absolute
@@ -172,7 +179,24 @@ header
     .containerResponse
         height: 5em
 
+@media screen and (max-width: 325px)
+    .titleGame
+        width: 82%
+
+    .cardImage
+        width: 12em
+        height: 12em
+        margin: auto
+
+    .containerResponse
+        width: 14em
+    .boxWords
+        width: 14em
+        h3
+            font-size: 2.2em
+            margin: 12px 0
     .iconCancel, .iconCheck
-        width: 8em
-        left: -10px
+        width: 6em
+        left: -6px
         bottom: 0
+        height: 5.2em
