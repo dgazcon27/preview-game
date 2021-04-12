@@ -5,6 +5,7 @@
 .containerGame {
   position: relative;
   padding-top: 1em;
+  overflow-x: hidden;
 }
 
 .titleGame {
@@ -64,6 +65,7 @@
   align-items: center;
   color: white;
   height: 5em;
+  transition: ease;
 }
 .boxWords h3 {
   font-size: 2.2em;
@@ -74,6 +76,7 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 3em;
+  margin-bottom: 3em;
 }
 
 header {

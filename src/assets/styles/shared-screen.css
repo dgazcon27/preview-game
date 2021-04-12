@@ -5,6 +5,9 @@
 .container-sup {
   display: flex;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .container-first {
@@ -13,6 +16,7 @@
   position: fixed;
   width: 120%;
   right: -11%;
+  z-index: 1;
 }
 
 .container-second {
@@ -20,6 +24,7 @@
   align-items: flex-end;
   background: white;
   justify-content: center;
+  width: 100%;
 }
 
 .logo {
@@ -28,6 +33,7 @@
   height: auto;
   width: 100%;
   bottom: 56%;
+  z-index: 2;
 }
 
 .text-box {
@@ -36,6 +42,14 @@
 .text-box p {
   font-size: 4em;
   color: #707070;
+}
+
+.notification-box {
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  display: none;
 }
 
 @media screen and (max-width: 780px) {
@@ -50,7 +64,7 @@
 }
 @media screen and (max-width: 480px) {
   .logo {
-    width: 45%;
+    width: 30%;
     bottom: 60% !important;
   }
 
@@ -73,6 +87,7 @@
   }
 
   .logo {
+    max-width: 280px;
     left: 13%;
     bottom: 22%;
   }
@@ -83,16 +98,24 @@
 
   .container-second {
     align-items: center;
-    margin-right: 3em;
+    justify-content: flex-end !important;
   }
 
   .text-box {
     margin-bottom: 0;
+    padding-right: 2em;
   }
 }
 @media screen and (max-width: 1024px) and (orientation: landscape) {
   .logo {
-    bottom: 35%;
+    bottom: 30%;
+    max-width: 130px;
+  }
+}
+@media screen and (max-width: 480px) and (orientation: landscape) {
+  .logo {
+    bottom: 30% !important;
+    max-width: 130px;
   }
 }
 

@@ -5,46 +5,45 @@ import {
   arbol,
   arcoiris,
   ave,
-  avion,
 } from "../utils/imagesGames";
 
-const items = [
-  {
-    id: 1,
-    name: "Arbol",
-    image: arbol,
-  },
-  {
-    id: 2,
-    name: "Abeja",
-    image: abeja,
-  },
-  {
-    id: 3,
-    name: "Anillo",
-    image: anillo,
-  },
-  {
-    id: 4,
-    name: "Araña",
-    image: arana,
-  },
-  {
-    id: 5,
-    name: "Arcoiris",
-    image: arcoiris,
-  },
-  {
-    id: 6,
-    name: "Ave",
-    image: ave,
-  },
-  {
-    id: 5,
-    name: "Avion",
-    image: avion,
-  },
-];
+// const items = [
+//   {
+//     id: 1,
+//     name: "Arbol",
+//     image: arbol,
+//   },
+//   {
+//     id: 2,
+//     name: "Abeja",
+//     image: abeja,
+//   },
+//   {
+//     id: 3,
+//     name: "Anillo",
+//     image: anillo,
+//   },
+//   {
+//     id: 4,
+//     name: "Araña",
+//     image: arana,
+//   },
+//   {
+//     id: 5,
+//     name: "Arcoiris",
+//     image: arcoiris,
+//   },
+//   {
+//     id: 6,
+//     name: "Ave",
+//     image: ave,
+//   },
+//   {
+//     id: 5,
+//     name: "Avion",
+//     image: avion,
+//   },
+// ];
 
 export const data = [
   {

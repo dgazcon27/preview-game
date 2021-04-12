@@ -5,8 +5,17 @@ import background from "../assets/images/background.svg";
 import iconBack from "../assets/images/iconBack.svg";
 import logo from "../assets/images/logo.svg";
 import iconSound from "../assets/images/iconSound.svg";
+import iconSoundWhite from "../assets/images/iconoNotaBlanco.svg";
 import cancelIcon from "../assets/images/wrong.svg";
 import checkIcon from "../assets/images/check.svg";
 
 // Exporting resources shared
-export { iconBack, logo, background, iconSound, cancelIcon, checkIcon };
+export {
+  iconBack,
+  logo,
+  background,
+  iconSound,
+  cancelIcon,
+  checkIcon,
+  iconSoundWhite,
+};

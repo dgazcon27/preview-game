@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../../assets/styles/shared-screen.css";
 import logoKoala from "../../assets/images/koalaSinFondo.svg";
+import gsap from "gsap";
 
-const ComponentPortrait = () => {
+const ComponentPortrait = ({ isVisible }) => {
   const [container, setContainer] = useState(initialHeight());
   const [isLandscape, setIsLandscape] = useState(getOrientation());
-
+  console.log();
   useEffect(() => {
     const updateScreenHeight = () => {
       let height = window.innerHeight;
@@ -34,8 +35,26 @@ const ComponentPortrait = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isVisible) {
+      var tl = gsap.timeline();
+
+      tl.from(".container-second", {
+        y: container.height2,
+        duration: 1,
+        opacity: 0,
+      });
+      tl.from(".container-first", {
+        y: container.height2,
+        duration: 1,
+        opacity: 0,
+      });
+      tl.from(".logo", { duration: 1, opacity: 0, scale: 0.5 });
+    }
+  }, [container, isVisible]);
+
   return (
-    <div className="container-sup">
+    <div className={`${!isVisible ? "hidden" : ""} container-sup `}>
       <div
         className="container-first"
         style={{ height: `${container.height1}px` }}
@@ -54,10 +73,10 @@ const ComponentPortrait = () => {
   );
 };
 
-const CongratulationScreen = () => {
+const CongratulationScreen = ({ isVisible }) => {
   return (
     <div>
-      <ComponentPortrait />
+      <ComponentPortrait isVisible={isVisible} />
     </div>
   );
 };

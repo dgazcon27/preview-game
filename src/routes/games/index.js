@@ -1,24 +1,29 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-import { iconSound } from "../../utils/imagesResources";
+import { iconSound, iconSoundWhite } from "../../utils/imagesResources";
 
 import DragComponent from "../../components/games/DragComponent";
 import ResponseComponent from "../../components/games/ResponseComponent";
+// import
 import Header from "../../components/shared/Header";
 import { data } from "../../utils/mocks";
-
 import "../../assets/styles/games.css";
 import "../../assets/styles/main.css";
+import CongratulationScreen from "../shared/CongratulationScreen";
+import gsap from "gsap";
 
 const title = "Coloca la palabra al frente de cada imagen correspondiente";
 const Games = () => {
-  const [position, setPosition] = useState(0);
   let history = useHistory();
+
+  const [position, setPosition] = useState(0);
+  const [isLevelUp, setIsLevelUp] = useState(false);
   const [statusWord, setStatusWord] = useState({
     word1: false,
     word2: false,
   });
+  const [transition, setTransition] = useState(false);
   const boxResponse1 = useRef(null);
   const boxResponse2 = useRef(null);
 
@@ -33,11 +38,27 @@ const Games = () => {
           word1: false,
           word2: false,
         });
+        setTransition(true);
       } else {
-        history.push("congratulations");
+        setIsLevelUp(true);
+        // history.push("congratulations");
       }
     }
   }, [statusWord, position, history]);
+
+  useEffect(() => {
+    if (transition) {
+      let tl = gsap.timeline();
+      tl.from(".containerBox", {
+        duration: 1,
+        opacity: 0,
+        x: window.innerWidth,
+        onComplete: function () {
+          setTransition(false);
+        },
+      });
+    }
+  }, [transition]);
 
   return (
     <div className="containerGame">
@@ -51,7 +72,11 @@ const Games = () => {
       <div className="containerBox">
         <div className="containerOptions">
           <div className="cardImage">
-            <img src={list.word1.image} alt={list.word1.name} />
+            <img
+              className="imageCard"
+              src={list.word1.image}
+              alt={list.word1.name}
+            />
           </div>
           <ResponseComponent
             reference={boxResponse1}
@@ -60,14 +85,14 @@ const Games = () => {
             position="word1"
           />
         </div>
-        <div className="containerWords">
+        <div className={`${isLevelUp ? "hidden" : ""} containerWords`}>
           <DragComponent
             word={list.word2.name}
             divResponse={[boxResponse1, boxResponse2]}
             setStatusWord={setStatusWord}
             statusWord={statusWord}
           >
-            <img src={iconSound} alt="iconSound" />
+            <img src={iconSoundWhite} alt="iconSound" />
             <h3>{list.word2.name}</h3>
           </DragComponent>
           <DragComponent
@@ -76,13 +101,17 @@ const Games = () => {
             setStatusWord={setStatusWord}
             statusWord={statusWord}
           >
-            <img src={iconSound} alt="iconSound" />
+            <img src={iconSoundWhite} alt="iconSound" />
             <h3>{list.word1.name}</h3>
           </DragComponent>
         </div>
         <div className="containerOptions">
           <div className="cardImage">
-            <img src={list.word2.image} alt={list.word2.name} />
+            <img
+              className="imageCard"
+              src={list.word2.image}
+              alt={list.word2.name}
+            />
           </div>
           <ResponseComponent
             reference={boxResponse2}
@@ -92,6 +121,7 @@ const Games = () => {
           />
         </div>
       </div>
+      <CongratulationScreen isVisible={isLevelUp}></CongratulationScreen>
     </div>
   );
 };

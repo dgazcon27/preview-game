@@ -30,6 +30,7 @@ const DragComponent = ({
 
     function dragStart(e) {
       dragItem.classList.add("active");
+      console.log("aqui");
       dragItem.onselectstart = function () {
         return false;
       };
@@ -167,7 +168,7 @@ const DragComponent = ({
     }
 
     function setTranslate(xPos, yPos, el) {
-      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+      el.style.transform = "translate(" + xPos + "px, " + yPos + "px)";
     }
 
     return () => {
@@ -179,13 +180,13 @@ const DragComponent = ({
       container.removeEventListener("mouseup", dragEnd);
       container.removeEventListener("mousemove", drag);
     };
-  }, [divResponse, word, state, statusWord]);
+  }, [divResponse, word, state, statusWord, setStatusWord]);
 
   useEffect(() => {
     let dragItem = dragItemRef.current;
     if (statusWord.word1 && statusWord.word2) {
       setState(initialState());
-      dragItem.style.transform = "translate3d(" + 0 + "px, " + 0 + "px, 0)";
+      dragItem.style.transform = "translate(" + 0 + "px, " + 0 + "px)";
       divResponse.forEach((element) => {
         element.current.classList.remove("containerCorrect");
         element.current.classList.remove("containerWrong");
@@ -195,7 +196,13 @@ const DragComponent = ({
 
   return (
     <div ref={containerRef} className="drag-container">
-      <div ref={dragItemRef} className="boxWords item">
+      <div
+        ref={dragItemRef}
+        onClick={() => {
+          console.log("aqui atadssad");
+        }}
+        className="boxWords item"
+      >
         {children}
       </div>
     </div>
