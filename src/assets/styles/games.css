@@ -5,16 +5,15 @@
 .containerGame {
   position: relative;
   padding-top: 1em;
-  overflow-x: hidden;
 }
 
 .titleGame {
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 0;
-  left: 25%;
-  width: 45%;
+  top: 2em;
+  left: 0%;
+  width: 95%;
 }
 .titleGame h2 {
   display: flex;
@@ -151,9 +150,7 @@ header img {
 
 @media screen and (max-width: 992px) {
   .titleGame {
-    margin-top: 2em;
-    left: 22%;
-    width: 55%;
+    top: 4em;
   }
 
   .iconCancel, .iconCheck {
@@ -199,11 +196,19 @@ header img {
 
   .containerWords {
     position: absolute;
-    bottom: -16em;
+    bottom: 0;
   }
 
   .containerResponse {
     height: 5em;
+  }
+
+  .containerGame {
+    min-height: 600px;
+  }
+
+  .titleGame h2 {
+    font-size: 85%;
   }
 }
 @media screen and (max-width: 325px) {

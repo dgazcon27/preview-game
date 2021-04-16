@@ -1,24 +1,27 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import gsap from "gsap";
 
 import { iconSound, iconSoundWhite } from "../../utils/imagesResources";
+import titleSound from "../../assets/sounds/moduloVocabulario.mp3";
 
 import DragComponent from "../../components/games/DragComponent";
 import ResponseComponent from "../../components/games/ResponseComponent";
-// import
+import BackgroundComponent from "../../components/shared/BackgroundComponent";
+
 import Header from "../../components/shared/Header";
 import { data } from "../../utils/mocks";
 import "../../assets/styles/games.css";
 import "../../assets/styles/main.css";
 import CongratulationScreen from "../shared/CongratulationScreen";
-import gsap from "gsap";
+import background from "../../assets/images/background_tramas.svg";
 
 const title = "Coloca la palabra al frente de cada imagen correspondiente";
 const Games = () => {
   let history = useHistory();
 
   const [position, setPosition] = useState(0);
-  const [isLevelUp, setIsLevelUp] = useState(false);
+  const [isLevelUp, setIsLevelUp] = useState(true);
   const [statusWord, setStatusWord] = useState({
     word1: false,
     word2: false,
@@ -28,6 +31,11 @@ const Games = () => {
   const boxResponse2 = useRef(null);
 
   const list = data[position];
+
+  const playSound = (sound) => {
+    let snd = new Audio(sound);
+    snd.play();
+  };
 
   useEffect(() => {
     if (statusWord.word1 && statusWord.word2) {
@@ -60,8 +68,18 @@ const Games = () => {
     }
   }, [transition]);
 
+  useEffect(() => {
+    let snd = new Audio(titleSound);
+    snd.play();
+  }, []);
+
   return (
     <div className="containerGame">
+      <BackgroundComponent source={background} />
+      {/* <audio controls autoplay>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+</audio> */}
       <Header></Header>
       <div className="titleGame">
         <h2>
@@ -92,7 +110,11 @@ const Games = () => {
             setStatusWord={setStatusWord}
             statusWord={statusWord}
           >
-            <img src={iconSoundWhite} alt="iconSound" />
+            <img
+              onClick={() => playSound(list.word2.sound)}
+              src={iconSoundWhite}
+              alt="iconSound"
+            />
             <h3>{list.word2.name}</h3>
           </DragComponent>
           <DragComponent
@@ -101,7 +123,11 @@ const Games = () => {
             setStatusWord={setStatusWord}
             statusWord={statusWord}
           >
-            <img src={iconSoundWhite} alt="iconSound" />
+            <img
+              onClick={() => playSound(list.word1.sound)}
+              src={iconSoundWhite}
+              alt="iconSound"
+            />
             <h3>{list.word1.name}</h3>
           </DragComponent>
         </div>

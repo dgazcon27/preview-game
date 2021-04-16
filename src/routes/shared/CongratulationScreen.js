@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../assets/styles/shared-screen.css";
-import logoKoala from "../../assets/images/koalaSinFondo.svg";
+import logoFondoAzul from "../../assets/images/logoFondoAzul.svg";
 import gsap from "gsap";
 
 const ComponentPortrait = ({ isVisible }) => {
@@ -55,11 +55,7 @@ const ComponentPortrait = ({ isVisible }) => {
 
   return (
     <div className={`${!isVisible ? "hidden" : ""} container-sup `}>
-      <div
-        className="container-first"
-        style={{ height: `${container.height1}px` }}
-      ></div>
-      <img className="logo" src={logoKoala} alt="logoKoala" />
+      <img className="logo" src={logoFondoAzul} alt="logoKoala" />
       <div
         className="container-second"
         style={{ height: `${container.height2}px` }}

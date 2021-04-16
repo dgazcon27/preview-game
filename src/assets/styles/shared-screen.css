@@ -37,7 +37,7 @@
 }
 
 .text-box {
-  margin-bottom: 4em;
+  margin-bottom: 6em;
 }
 .text-box p {
   font-size: 4em;
@@ -55,7 +55,7 @@
 @media screen and (max-width: 780px) {
   .logo {
     max-width: 300px;
-    width: 52%;
+    width: 100%;
   }
 
   .text-box p {
@@ -64,8 +64,8 @@
 }
 @media screen and (max-width: 480px) {
   .logo {
-    width: 30%;
-    bottom: 60% !important;
+    width: 100%;
+    bottom: 50% !important;
   }
 
   .container-first {
@@ -108,8 +108,21 @@
 }
 @media screen and (max-width: 1024px) and (orientation: landscape) {
   .logo {
-    bottom: 30%;
-    max-width: 130px;
+    bottom: 20%;
+    max-width: 300px;
+  }
+}
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .logo {
+    bottom: 20%;
+    max-width: 250px;
+    width: 40%;
+  }
+}
+@media screen and (max-width: 550px) and (orientation: landscape) {
+  .logo {
+    bottom: 25% !important;
+    left: 5%;
   }
 }
 @media screen and (max-width: 480px) and (orientation: landscape) {
