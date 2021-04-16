@@ -22,7 +22,6 @@ const DragComponent = ({
 
   useEffect(() => {
     let dragitem = dragItemRef.current;
-    let { x, y } = dragitem.getBoundingClientRect();
     if (state.positionInitial) {
       const tl = gsap.timeline();
       tl.fromTo(

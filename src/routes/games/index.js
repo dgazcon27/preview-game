@@ -71,7 +71,10 @@ const Games = () => {
   useEffect(() => {}, []);
 
   return (
-    <div className="containerGame">
+    <div
+      className="containerGame"
+      style={transition ? { overflowX: "hidden" } : {}}
+    >
       <BackgroundComponent source={background} />
       <Header></Header>
       <div className="titleGame">
