@@ -5,6 +5,7 @@ import {
   arbol,
   arcoiris,
   ave,
+  avion,
 } from "../utils/imagesGames";
 
 import {
@@ -55,9 +56,9 @@ export const data = [
     },
     word2: {
       id: 6,
-      name: "Ave",
-      image: ave,
-      sound: aveSound,
+      name: "Avión",
+      image: avion,
+      sound: avionSound,
     },
   },
 ];
