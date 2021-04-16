@@ -21,7 +21,7 @@ const Games = () => {
   let history = useHistory();
 
   const [position, setPosition] = useState(0);
-  const [isLevelUp, setIsLevelUp] = useState(true);
+  const [isLevelUp, setIsLevelUp] = useState(false);
   const [statusWord, setStatusWord] = useState({
     word1: false,
     word2: false,
@@ -68,22 +68,20 @@ const Games = () => {
     }
   }, [transition]);
 
-  useEffect(() => {
-    let snd = new Audio(titleSound);
-    snd.play();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div className="containerGame">
       <BackgroundComponent source={background} />
-      {/* <audio controls autoplay>
-  <source src="horse.ogg" type="audio/ogg">
-  <source src="horse.mp3" type="audio/mpeg">
-</audio> */}
       <Header></Header>
       <div className="titleGame">
         <h2>
-          <img src={iconSound} alt="iconSound" />
+          <img
+            onClick={() => playSound(titleSound)}
+            src={iconSound}
+            alt="iconSound"
+          />
+          <audio src={titleSound} autoPlay />
           {title}
         </h2>
       </div>

@@ -6,7 +6,6 @@ import gsap from "gsap";
 const ComponentPortrait = ({ isVisible }) => {
   const [container, setContainer] = useState(initialHeight());
   const [isLandscape, setIsLandscape] = useState(getOrientation());
-  console.log();
   useEffect(() => {
     const updateScreenHeight = () => {
       let height = window.innerHeight;
@@ -24,7 +23,6 @@ const ComponentPortrait = ({ isVisible }) => {
 
   useEffect(() => {
     const orientationChange = () => {
-      console.log("change orientation");
       setIsLandscape(getOrientation());
     };
 

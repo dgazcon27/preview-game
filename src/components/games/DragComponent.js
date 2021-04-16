@@ -25,7 +25,6 @@ const DragComponent = ({
     let { x, y } = dragitem.getBoundingClientRect();
     if (state.positionInitial) {
       const tl = gsap.timeline();
-      console.log(x, y);
       tl.fromTo(
         dragitem,
         { x: state.actualX, y: state.actualY },
