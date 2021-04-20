@@ -21,14 +21,13 @@
 
 .container-second {
   display: flex;
-  align-items: flex-end;
+  flex-wrap: wrap;
   background: white;
   justify-content: center;
   width: 100%;
 }
 
 .logo {
-  position: absolute;
   max-width: 350px;
   height: auto;
   width: 100%;
@@ -37,7 +36,8 @@
 }
 
 .text-box {
-  margin-bottom: 6em;
+  min-width: 100%;
+  text-align: center;
 }
 .text-box p {
   font-size: 4em;
@@ -55,7 +55,7 @@
 @media screen and (max-width: 780px) {
   .logo {
     max-width: 300px;
-    width: 100%;
+    width: 40%;
   }
 
   .text-box p {
@@ -64,12 +64,13 @@
 }
 @media screen and (max-width: 480px) {
   .logo {
-    width: 100%;
+    width: 60%;
     bottom: 50% !important;
+    max-width: 250px;
   }
 
   .container-first {
-    width: 109%;
+    width: 100%;
     right: -5%;
   }
 
@@ -87,9 +88,7 @@
   }
 
   .logo {
-    max-width: 280px;
-    left: 13%;
-    bottom: 22%;
+    max-width: 215px;
   }
 
   .container-sup {
@@ -97,38 +96,48 @@
   }
 
   .container-second {
+    flex-wrap: nowrap;
     align-items: center;
-    justify-content: flex-end !important;
+    justify-content: space-between;
+    padding: 0 3em;
   }
 
   .text-box {
     margin-bottom: 0;
     padding-right: 2em;
+    min-width: 0;
   }
 }
-@media screen and (max-width: 1024px) and (orientation: landscape) {
+@media screen and (min-width: 1440px) and (orientation: landscape) {
+  .container-second {
+    padding: 0 20%;
+  }
+
   .logo {
-    bottom: 30%;
+    max-width: 400px;
+  }
+}
+@media screen and (min-width: 768px) and (orientation: landscape) {
+  .container-second {
+    padding: 0 6em;
+  }
+
+  .logo {
     max-width: 300px;
-  }
-}
-@media screen and (max-width: 768px) and (orientation: landscape) {
-  .logo {
-    bottom: 30%;
-    max-width: 250px;
     width: 40%;
-  }
-}
-@media screen and (max-width: 550px) and (orientation: landscape) {
-  .logo {
-    bottom: 25% !important;
-    left: 5%;
   }
 }
 @media screen and (max-width: 480px) and (orientation: landscape) {
   .logo {
-    bottom: 30% !important;
-    max-width: 130px;
+    max-width: 160px;
+  }
+
+  .container-second {
+    padding: 0 1em;
+  }
+
+  .text-box p {
+    font-size: 2.5em;
   }
 }
 
