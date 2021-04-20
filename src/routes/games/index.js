@@ -7,14 +7,12 @@ import titleSound from "../../assets/sounds/moduloVocabulario.mp3";
 
 import DragComponent from "../../components/games/DragComponent";
 import ResponseComponent from "../../components/games/ResponseComponent";
-import BackgroundComponent from "../../components/shared/BackgroundComponent";
 
 import Header from "../../components/shared/Header";
 import { data } from "../../utils/mocks";
 import "../../assets/styles/games.css";
 import "../../assets/styles/main.css";
 import CongratulationScreen from "../shared/CongratulationScreen";
-import background from "../../assets/images/background_tramas.svg";
 
 const title = "Coloca la palabra al frente de cada imagen correspondiente";
 const Games = () => {
@@ -75,7 +73,6 @@ const Games = () => {
       className="containerGame"
       style={transition ? { overflowX: "hidden" } : {}}
     >
-      <BackgroundComponent source={background} />
       <Header></Header>
       <div className="titleGame">
         <h2>

@@ -2,9 +2,15 @@
   font-family: GhoticB;
   src: url("../fonts/GOTHICB.TTF");
 }
-body {
+body, html {
   font-size: 100%;
   font-family: GhoticB;
+  height: 100%;
+  margin: 0;
+  background-image: url("../images/background_tramas.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1 {
@@ -88,6 +94,11 @@ p {
 
   .headerRightBox {
     width: 40% !important;
+  }
+}
+@media screen and (min-height: 900px) {
+  .backgroundImage {
+    top: -15%;
   }
 }
 

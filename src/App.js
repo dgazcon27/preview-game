@@ -3,7 +3,7 @@ import Routes from "./routes";
 import { GameContextProvider } from "./context/GameContext";
 function App() {
   return (
-    <div>
+    <div className="bg">
       <GameContextProvider>
         <Routes />
       </GameContextProvider>

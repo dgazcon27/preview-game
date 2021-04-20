@@ -196,7 +196,7 @@ header img {
 
   .containerWords {
     position: absolute;
-    bottom: 0;
+    bottom: -15em;
   }
 
   .containerResponse {
