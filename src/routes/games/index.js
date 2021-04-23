@@ -19,7 +19,7 @@ const Games = () => {
   let history = useHistory();
 
   const [position, setPosition] = useState(0);
-  const [isLevelUp, setIsLevelUp] = useState(true);
+  const [isLevelUp, setIsLevelUp] = useState(false);
   const [statusWord, setStatusWord] = useState({
     word1: false,
     word2: false,
