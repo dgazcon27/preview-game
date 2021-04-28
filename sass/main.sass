@@ -6,12 +6,10 @@ body, html
   height: 100%
   margin: 0
   background-image: url("../images/background_tramas.svg")
-
-  // height: 50%
-
   background-position: center
   background-repeat: no-repeat
   background-size: cover
+  min-height: 650px
 
 h1
   font-size: 3.5em
@@ -79,6 +77,13 @@ p
 
   .headerRightBox
     width: 40% !important
+
+  html
+    min-height: 725px
+
+@media screen and (max-width: 325px)
+  html
+    min-height: 650px
 
 @media screen and (min-height: 900px)
   .backgroundImage
