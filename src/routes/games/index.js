@@ -12,14 +12,14 @@ import Header from "../../components/shared/Header";
 import { data } from "../../utils/mocks";
 import "../../assets/styles/games.css";
 import "../../assets/styles/main.css";
-import CongratulationScreen from "../shared/CongratulationScreen";
+import CongratulationScreen from "../../components/shared/CongratulationScreen";
 
 const title = "Coloca la palabra al frente de cada imagen correspondiente";
 const Games = () => {
   let history = useHistory();
 
   const [position, setPosition] = useState(0);
-  const [isLevelUp, setIsLevelUp] = useState(true);
+  const [isLevelUp, setIsLevelUp] = useState(false);
   const [statusWord, setStatusWord] = useState({
     word1: false,
     word2: false,
@@ -47,7 +47,6 @@ const Games = () => {
         setTransition(true);
       } else {
         setIsLevelUp(true);
-        // history.push("congratulations");
       }
     }
   }, [statusWord, position, history]);
@@ -65,8 +64,6 @@ const Games = () => {
       });
     }
   }, [transition]);
-
-  useEffect(() => {}, []);
 
   return (
     <div

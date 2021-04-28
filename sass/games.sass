@@ -35,8 +35,39 @@ $box-shadow: 0px 3px 6px 2px
         width: 11em
         height: auto
 
+// .cardAudio
+//     img
+//         width: 9em
+
+.buttonAudio
+    background: base.$shadowBoxColor2
+    width: 6em
+    height: 4em
+    display: flex
+    justify-content: center
+    border-radius: $border-radius-item
+    box-shadow: $box-shadow base.$shadowBoxColor2
+
+    &:active
+        transform: scale(0.9)
+
+    img
+        width: 2.5em
+        height: auto
+
 .containerOptions
     position: relative
+
+.audioBox
+    display: flex
+
+.containerAudio
+    margin: 0 2.5em
+    div
+        margin: auto
+    .cardAudio
+        margin-bottom: 3em
+        position: relative
 
 .containerResponse
     background: base.$responseBoxColor
@@ -68,7 +99,7 @@ $box-shadow: 0px 3px 6px 2px
 .containerBox
     display: flex
     justify-content: space-evenly
-    margin-top: 3em
+    margin-top: 1em
     margin-bottom: 3em
 
 header
@@ -134,6 +165,23 @@ header
         font-weight: bold
         color: white
 
+.cardResponseAudio
+    border-radius: 1em
+    position: absolute
+    top: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 13em
+    height: 13em
+    padding: 1em
+
+    &.good
+        background: #57ac11
+    &.wrong
+        background: #CE2361
+        opacity: 0.6
+
 @media screen and (max-width: 992px)
     .titleGame
         top: 4em
@@ -160,6 +208,9 @@ header
         width: 6em
         left: -10px
         bottom: -4px
+
+    .containerAudio
+        margin: 0 .5em
 
 @media screen and (max-width: 768px) and (orientation: landscape)
     .containerBox
@@ -188,14 +239,26 @@ header
     .titleGame
         h2
             font-size: 85%
+    .audioBox
+        display: block
+
+    .containerAudio
+        display: flex
+        justify-content: space-between
+        align-items: center
+        margin-bottom: 1em
+        min-width: 250px
+
+    .containerAudio .cardAudio
+        margin-bottom: 0em
 
 @media screen and (max-width: 325px)
     .titleGame
         width: 82%
 
     .cardImage
-        width: 12em
-        height: 12em
+        width: 10em
+        height: 10em
         margin: auto
 
     .containerResponse
@@ -210,3 +273,7 @@ header
         left: -6px
         bottom: 0
         height: 5.2em
+
+    .cardAudio
+        img
+            width: 9em
