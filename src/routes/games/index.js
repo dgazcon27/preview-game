@@ -13,10 +13,13 @@ import { data } from "../../utils/mocks";
 import "../../assets/styles/games.css";
 import "../../assets/styles/main.css";
 import CongratulationScreen from "../../components/shared/CongratulationScreen";
+import { useSetBackGround } from "../../hooks/useSetBackGround";
+import backGround from "../../assets/images/background_tramas.svg";
 
 const title = "Coloca la palabra al frente de cada imagen correspondiente";
 const Games = () => {
   let history = useHistory();
+  useSetBackGround(backGround);
 
   const [position, setPosition] = useState(0);
   const [isLevelUp, setIsLevelUp] = useState(false);

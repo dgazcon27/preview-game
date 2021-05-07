@@ -4,16 +4,17 @@ import Games from "./games";
 import AudioScreen from "./games/audio";
 import Others from "./other";
 import LevelUpScreenComponent from "../components/shared/LevelUpScreenComponent";
+import Home from "./home";
 
 const Routes = () => {
   return (
     <Router>
       <Switch>
         <Route path="/others" component={Others} />
-        <Route path="/audio" component={AudioScreen} />
-        <Route path="/select-word" component={Games} />
+        <Route path="/escucha" component={AudioScreen} />
+        <Route path="/vocabulario" component={Games} />
         <Route path="/level-up" component={LevelUpScreenComponent} />
-        <Route path="/" component={AudioScreen} />
+        <Route path="/" component={Home} />
       </Switch>
     </Router>
   );

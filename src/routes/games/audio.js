@@ -6,7 +6,6 @@ import Header from "../../components/shared/Header";
 import instructions from "../../assets/sounds/moduloEscucha.mp3";
 import TitleSound from "../../components/shared/TitleSound";
 import { GameContext } from "../../context/GameContext";
-import fondoModEscGranAlto from "../../assets/images/fondoModEscGranAlto.svg";
 import {
   CardComponent,
   BottonAudioComponent,
@@ -14,8 +13,11 @@ import {
 import { useResponseAudio } from "../../hooks/usePlaySounds";
 
 import { mockAudioData } from "../../utils/mocks";
-
+import { useSetBackGround } from "../../hooks/useSetBackGround";
+import backGround from "../../assets/images/fondoModEscGranAlto.svg";
 export const AudioScreen = () => {
+  useSetBackGround(backGround);
+
   const [playResponseAudio] = useResponseAudio();
   const [transition, setTransition] = useState(false);
   const [state, setState] = useState({
@@ -86,10 +88,6 @@ export const AudioScreen = () => {
       }
     }
   }, [state, history]);
-
-  useEffect(() => {
-    document.body.style.backgroundImage = `url(${fondoModEscGranAlto})`;
-  }, []);
 
   return (
     <div

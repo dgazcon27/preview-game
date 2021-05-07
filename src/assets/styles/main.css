@@ -2,6 +2,14 @@
   font-family: GhoticB;
   src: url("../fonts/GOTHICB.TTF");
 }
+@font-face {
+  font-family: Coopbl;
+  src: url("../fonts/COOPBL.TTF");
+}
+@font-face {
+  font-family: Ghotic;
+  src: url("../fonts/GOTHIC.TTF");
+}
 body, html {
   font-size: 100%;
   font-family: GhoticB;
@@ -30,6 +38,16 @@ p {
   font-size: 0.9em;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+}
+header img {
+  width: 6em;
+}
+
 .backgroundImage {
   /* Set rules to fill background */
   min-height: 100%;
@@ -49,6 +67,14 @@ p {
   justify-content: center;
   display: flex;
   align-items: center;
+  z-index: 100;
+}
+
+.iconBack:hover {
+  cursor: pointer;
+}
+.iconBack:active {
+  transform: scale(0.9);
 }
 
 .headerRightBox {
@@ -97,12 +123,12 @@ p {
     width: 40% !important;
   }
 
-  html {
+  body {
     min-height: 725px;
   }
 }
 @media screen and (max-width: 325px) {
-  html {
+  body {
     min-height: 650px;
   }
 }

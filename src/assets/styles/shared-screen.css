@@ -2,6 +2,14 @@
   font-family: GhoticB;
   src: url("../fonts/GOTHICB.TTF");
 }
+@font-face {
+  font-family: Coopbl;
+  src: url("../fonts/COOPBL.TTF");
+}
+@font-face {
+  font-family: Ghotic;
+  src: url("../fonts/GOTHIC.TTF");
+}
 .container-sup {
   display: flex;
   justify-content: center;
