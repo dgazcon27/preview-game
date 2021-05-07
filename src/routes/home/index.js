@@ -20,6 +20,7 @@ import {
   letterBf,
   letterLL,
   letterJCH,
+  vocalAUList,
 } from "./elements";
 
 const Home = () => {
@@ -56,7 +57,7 @@ const Home = () => {
         <HomeGridComponent
           mainTitle="Vocales AEIOU"
           mainImage={caraOso}
-          list={vocalAU}
+          list={vocalAUList}
         />
         {/* <HomeGridComponent
           mainTitle="Letras MPSLT"

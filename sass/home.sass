@@ -66,8 +66,16 @@
         cursor: move
 
 .panel
-    display: none
+    margin-top: 3em
+    position: relative
+    max-height: 0
     overflow: hidden
+    transition: max-height 0.2s ease-out
+
+.gridCardList
+    display: flex
+    flex-wrap: wrap
+    padding: 3em 0
 
 .cardListGame
     background: #ffde57
@@ -77,8 +85,7 @@
     text-align: center
     padding-top: 5em
     position: relative
-    margin-right: auto
-    margin-left: auto
+    margin: 0 auto 3em auto
 
     h2
         font-family: Coopbl
@@ -110,12 +117,6 @@
     h2
         background: #356cfd
 
-.row3Cards
-    display: flex
-    justify-content: center
-    align-items: center
-    margin-bottom: 4.5em
-
 .homeHeaderIcons
     img.active
         background: #006db2
@@ -129,6 +130,13 @@
         height: 80px
         width: 3em
         padding: 0 2em
+        margin: 0 5px
+
+.iconCloseBotton
+    right: 0
+    bottom: 0
+    position: absolute
+    width: 75px
 
 @media screen and ( min-width: 1200px )
     .cardListGame
@@ -156,9 +164,8 @@
 
     .cardListGame
         width: 300px
-        margin-right: 1.5em
         h2
-            left: 130px
+            left: 42%
 
 @media screen and ( min-width: 768px )
     .homeHeader
@@ -168,6 +175,11 @@
         div
             position: absolute
             left: 45%
+@media screen and ( max-width: 480px )
+    .letterTitle
+        .iconAccordion
+            top: 10%
+            width: 15%
 
 @media screen and ( max-width: 425px )
     .homeHeader
@@ -180,9 +192,16 @@
 
     .mainTitle
         @extend %margins
+        font-size: 3em
 
     .letterTitle
         @extend %margins
+        .iconAccordion
+            top: 20%
 
     .rowLetterTitle
-        width: 100%
+        width: 80%
+
+        p
+            font-size: 1.5em
+            padding: 0.5em 1em
