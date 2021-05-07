@@ -58,7 +58,7 @@ const Home = () => {
           mainImage={caraOso}
           list={vocalAU}
         />
-        <HomeGridComponent
+        {/* <HomeGridComponent
           mainTitle="Letras MPSLT"
           mainImage={caraPato}
           list={letterM}
@@ -82,7 +82,7 @@ const Home = () => {
           mainTitle="Letras JKQCH"
           mainImage={caraKoala}
           list={letterJCH}
-        />
+        /> */}
       </div>
     </div>
   );
