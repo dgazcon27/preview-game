@@ -221,6 +221,7 @@
   .titleGame h2 {
     display: flex;
     font-size: 1.5em;
+    align-items: center;
   }
 
   .iconCancel, .iconCheck {

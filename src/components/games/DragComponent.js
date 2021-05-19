@@ -209,7 +209,7 @@ const DragComponent = ({
       container.removeEventListener("mouseup", dragEnd);
       container.removeEventListener("mousemove", drag);
     };
-  }, [divResponse, word, state, statusWord, setStatusWord]);
+  }, [divResponse, word, state, statusWord, setStatusWord, dispatch]);
 
   useEffect(() => {
     let dragItem = dragItemRef.current;

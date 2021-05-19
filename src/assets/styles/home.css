@@ -135,6 +135,14 @@
 .cardListGame .itemList img {
   width: 60px;
   height: auto;
+  cursor: pointer;
+}
+.cardListGame .itemList img:active {
+  transform: scale(0.9);
+}
+.cardListGame .itemList p {
+  margin-top: 0;
+  margin-bottom: 2em;
 }
 
 .cardEspecial h2 {

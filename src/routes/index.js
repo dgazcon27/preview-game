@@ -5,6 +5,7 @@ import AudioScreen from "./games/audio";
 import Others from "./other";
 import LevelUpScreenComponent from "../components/shared/LevelUpScreenComponent";
 import Home from "./home";
+import WrittingScreen from "./games/writting";
 
 const Routes = () => {
   return (
@@ -12,6 +13,7 @@ const Routes = () => {
       <Switch>
         <Route path="/others" component={Others} />
         <Route path="/escucha" component={AudioScreen} />
+        <Route path="/escritura" component={WrittingScreen} />
         <Route path="/vocabulario" component={Games} />
         <Route path="/level-up" component={LevelUpScreenComponent} />
         <Route path="/" component={Home} />

@@ -6,15 +6,15 @@ import {
   arcoiris,
   ave,
   avion,
-  alas,
-  astronauta,
-  elefante,
-  estrella,
   insectos,
-  isla,
   oso,
-  uva,
-  utiles,
+  elefante,
+  alas,
+  // astronauta,
+  // estrella,
+  // isla,
+  // uva,
+  // utiles,
 } from "../utils/imagesGames";
 
 import {
@@ -25,15 +25,16 @@ import {
   avionSound,
   AbejaSound,
   anilloSound,
-  alasSound,
-  astronautaSound,
   elefanteSound,
-  estrellaSound,
-  islaSound,
   insectosSound,
   osoSound,
-  utilesSound,
-  uvaSound,
+  alasSound,
+  // estrellaSound,
+  // islaSound,
+  // alasSound,
+  // astronautaSound,
+  // utilesSound,
+  // uvaSound,
 } from "../utils/sounds";
 
 export const data = [
@@ -78,108 +79,6 @@ export const data = [
       image: avion,
       sound: avionSound,
     },
-  },
-];
-
-const mockDataA = [
-  {
-    id: 1,
-    name: "Arbol",
-    image: arbol,
-    sound: arbolSound,
-  },
-  {
-    id: 2,
-    name: "Abeja",
-    image: abeja,
-    sound: AbejaSound,
-  },
-  {
-    id: 3,
-    name: "Anillo",
-    image: anillo,
-    sound: anilloSound,
-  },
-  {
-    id: 4,
-    name: "Araña",
-    image: arana,
-    sound: aranaSound,
-  },
-  {
-    id: 5,
-    name: "Arcoiris",
-    image: arcoiris,
-    sound: arcoirisSound,
-  },
-  {
-    id: 6,
-    name: "Avión",
-    image: avion,
-    sound: avionSound,
-  },
-  {
-    id: 7,
-    name: "Alas",
-    image: alas,
-    sound: alasSound,
-  },
-  {
-    id: 8,
-    name: "Astronauta",
-    image: astronauta,
-    sound: astronautaSound,
-  },
-  {
-    id: 16,
-    name: "Ave",
-    image: ave,
-    sound: aveSound,
-  },
-];
-
-const mockData = [
-  {
-    id: 9,
-    name: "Elefante",
-    image: elefante,
-    sound: elefanteSound,
-  },
-  {
-    id: 10,
-    name: "Estrella",
-    image: estrella,
-    sound: estrellaSound,
-  },
-  {
-    id: 11,
-    name: "Insectos",
-    image: insectos,
-    sound: insectosSound,
-  },
-  {
-    id: 12,
-    name: "Islas",
-    image: isla,
-    sound: islaSound,
-  },
-  {
-    id: 13,
-    name: "Oso",
-    image: oso,
-    sound: osoSound,
-  },
-  {
-    id: 13,
-    name: "Uva",
-    image: uva,
-    sound: uvaSound,
-  },
-  {
-    id: 14,
-    name: "Útiles",
-    image: utiles,
-    sound: utilesSound,
   },
 ];
 
@@ -245,6 +144,23 @@ export const mockAudioData = [
     },
   ],
 ];
+
+const listWrite = [
+  { id: 0, name: "Arbol", sound: arbolSound, image: arbol },
+  { id: 1, name: "Ave", sound: aveSound, image: ave },
+  { id: 2, name: "Araña", sound: aranaSound, image: arana },
+  { id: 3, name: "Abeja", sound: AbejaSound, image: abeja },
+  { id: 4, name: "Alas", sound: alasSound, image: alas },
+];
+
+export const mockWriteData = listWrite
+  .sort(() => Math.random() - 0.5)
+  .reduce((prev, item, index) => {
+    if (index < 3) {
+      prev.push(item);
+    }
+    return prev;
+  }, []);
 
 export function getItems(columns) {
   let list = [];

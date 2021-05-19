@@ -3,23 +3,23 @@ import iconBars from "../../assets/images/menuMovil.svg";
 import game from "../../assets/images/juegoMenu.svg";
 import user from "../../assets/images/perfilMenu.svg";
 import {
-  caraDino,
-  caraHipo,
-  caraKoala,
   caraOso,
-  caraPato,
-  caravaca,
+  // caraDino,
+  // caraHipo,
+  // caraKoala,
+  // caraPato,
+  // caravaca,
 } from "../../utils/imagesResources";
 import "../../assets/styles/home.css";
 import { useDimesions } from "../../hooks/useDimesion";
 import HomeGridComponent from "./ home";
 import {
-  vocalAU,
-  letterM,
-  letterNR,
-  letterBf,
-  letterLL,
-  letterJCH,
+  // vocalAU,
+  // letterM,
+  // letterNR,
+  // letterBf,
+  // letterLL,
+  // letterJCH,
   vocalAUList,
 } from "./elements";
 

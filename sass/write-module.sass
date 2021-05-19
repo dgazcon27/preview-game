@@ -1,0 +1,150 @@
+@use 'base'
+
+.containerLetters
+    display: flex
+    justify-content: space-evenly
+    align-items: center
+
+.itemResponse
+    background: #C0E7FC
+    display: flex
+    justify-content: center
+    height: 6em
+    width: 11em
+    box-shadow: 0px 3px 6px 2px #238aa5
+    border-radius: .5em
+
+.itemLetter
+    margin: 0 1em
+    background: #FBAC00
+    box-shadow: 0px 3px 6px 2px #e5860a
+    color: white
+
+    p
+        font-size: 4em
+        margin: 0
+
+.wrContainerImage
+    width: 25%
+    position: relative
+
+.wrContainerOptions
+    display: flex
+    justify-content: space-evenly
+    align-items: center
+    margin-top: 5em
+
+.wrContainerResponse
+    background: white
+    width: 60%
+    height: 300px
+    border: solid 5px green
+    border-radius: 22px
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+
+.wrCardImage
+    margin: auto
+
+.wrButtonAudio
+    position: absolute
+    bottom: -30px
+    left: 35%
+
+.wrRowItems
+    display: flex
+    width: 100%
+    justify-content: center
+    align-items: center
+
+.wrContainerBox
+    margin-top: 3em
+
+.itemContainer p
+    font-size: 4em
+    margin: 0
+
+.wrLetterGood
+    background: #238AA5
+    color: white
+    box-shadow: 0px 3px 6px 2px #238aa5
+
+.wrLetterBad
+    background: #CE2361
+    color: white
+    box-shadow: 0px 3px 6px 2px #CE2361
+
+@media screen and (min-width: 1200px)
+    .wrContainerResponse
+        height: 500px
+@media screen and ( max-width: 768px )
+    .itemResponse
+        width: 14%
+        height: 5em
+
+    .itemLetter
+        width: 10em !important
+
+    .wrContainerImage
+        width: 160px
+
+    .wrButtonAudio
+        left: 50px
+
+@media screen and ( max-width: 600px )
+    .wrContainerOptions
+        display: block
+
+    .wrContainerImage
+        width: 100%
+        max-width: 500px
+        margin: auto
+        min-width: 300px
+
+    .wrButtonAudio
+        left: 42.5%
+
+    .wrContainerResponse
+        margin: auto
+        height: 200px
+        margin-top: 5em
+        width: 90%
+
+@media screen and ( max-width: 425px )
+    .wrButtonAudio
+        left: 41.5%
+
+    .containerLetters
+        flex-wrap: wrap
+
+    .itemLetter
+        width: 4em !important
+        font-size: 1.5em
+        &.active
+            height: 2.5em !important
+            display: flex !important
+            align-items: center !important
+            font-size: 1.3em !important
+            width: 60% !important
+        &.lockResponse
+            height: 2.5em !important
+            display: flex !important
+            align-items: center !important
+            font-size: 1.3em !important
+            width: 60% !important
+
+    .dragContainer
+        &.active
+            width: 7.5em !important
+            height: 4.5em !important
+        &.lockResponse
+            width: 7.5em !important
+            height: 4.5em !important
+    .itemResponse
+        width: 13%
+        height: 3em
+        margin: 0 .5em
+        p
+            font-size: 2em

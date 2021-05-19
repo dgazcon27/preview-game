@@ -30,10 +30,10 @@ export const CardResponse = ({ isCorrect, typeClass, isVisible }) => {
   );
 };
 
-export const BottonAudioComponent = ({ audio }) => {
+export const BottonAudioComponent = ({ audio, styles }) => {
   const [playSound] = usePlaySounds();
   return (
-    <div onClick={() => playSound(audio)} className="buttonAudio">
+    <div onClick={() => playSound(audio)} className={`buttonAudio ${styles}`}>
       <img src={iconSoundWhite} alt="iconSoundWhite" />
     </div>
   );
