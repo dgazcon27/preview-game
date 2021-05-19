@@ -81,17 +81,18 @@
         height: 500px
 @media screen and ( max-width: 768px )
     .itemResponse
-        width: 14%
+        width: 59px !important
         height: 5em
-
-    .itemLetter
-        width: 10em !important
 
     .wrContainerImage
         width: 160px
 
     .wrButtonAudio
         left: 50px
+
+@media screen and ( min-width: 600px ) and ( max-width: 767px )
+    .itemResponse
+        width: 85px !important
 
 @media screen and ( max-width: 600px )
     .wrContainerOptions
@@ -118,32 +119,8 @@
 
     .containerLetters
         flex-wrap: wrap
-
-    .itemLetter
-        width: 4em !important
-        font-size: 1.5em
-        &.active
-            height: 2.5em !important
-            display: flex !important
-            align-items: center !important
-            font-size: 1.3em !important
-            width: 60% !important
-        &.lockResponse
-            height: 2.5em !important
-            display: flex !important
-            align-items: center !important
-            font-size: 1.3em !important
-            width: 60% !important
-
-    .dragContainer
-        &.active
-            width: 7.5em !important
-            height: 4.5em !important
-        &.lockResponse
-            width: 7.5em !important
-            height: 4.5em !important
     .itemResponse
-        width: 13%
+        width: 39px !important
         height: 3em
         margin: 0 .5em
         p

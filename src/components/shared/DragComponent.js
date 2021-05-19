@@ -27,8 +27,8 @@ const DragComponent = ({ children, styles, dragEndState, response }) => {
 
     function dragStart(e) {
       let initialX, initialY;
-      dragItem.classList.add("active");
-      container.classList.add("active");
+      // dragItem.classList.add("active");
+      // container.classList.add("active");
       dragItem.onselectstart = function () {
         return false;
       };

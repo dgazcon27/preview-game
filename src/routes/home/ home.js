@@ -79,7 +79,7 @@ const HomeGridComponent = ({ mainTitle, list, mainImage }) => {
                   {e.map((it) => (
                     <IconItem
                       key={it.id}
-                      styles="itemList "
+                      styles={`itemList ${it.link ? "" : "disabled"}`}
                       title={it.title}
                       img={it.img}
                       link={it.link}

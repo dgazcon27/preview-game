@@ -13,14 +13,18 @@ import DragComponent from "../../components/shared/DragComponent";
 import { useDragPosition } from "../../hooks/useDragPosition";
 import { GameContext } from "../../context/GameContext";
 import { mockWriteData } from "../../utils/mocks";
+import { useDimesions } from "../../hooks/useDimesion";
+import { useResponseAudio } from "../../hooks/usePlaySounds";
 
 const WrittingScreen = () => {
   useSetBackGround(backGround);
   const [isInPosition] = useDragPosition();
+  const dimesion = useDimesions();
   const { dispatch } = useContext(GameContext);
   const history = useHistory();
-  const [transition, setTransition] = useState(false);
+  const [playResponseAudio] = useResponseAudio();
 
+  const [transition, setTransition] = useState(false);
   const [state, setState] = useState(initialState());
 
   useEffect(() => {
@@ -56,13 +60,10 @@ const WrittingScreen = () => {
     if (node && node.dataset.word) {
       let response = node.dataset.word;
       let option = dragItem.dataset.word;
-      console.log({
-        width: container.clientWidth,
-        height: container.clientHeight,
-      });
+
       let { left, top } = container.getBoundingClientRect();
       let { x, y } = node.getBoundingClientRect();
-      let positionX = x - left - 10;
+      let positionX = x - left - (dimesion.width <= 425 ? 5 : 10);
       let positionY = y - top;
       setTranslate(positionX, positionY, dragItem);
       dispatchDrag({
@@ -76,11 +77,11 @@ const WrittingScreen = () => {
           currentX: positionX,
         },
       });
+      // playResponseAudio(response === option);
+
       if (response === option && !stateDrag.lockResponse) {
         let numLetters = state.numLetters - 1;
         dragItem.classList.add("wrLetterGood");
-        dragItem.classList.add("lockResponse");
-        container.classList.add("lockResponse");
         dispatch({
           type: "ADD_POINTS",
           value: 1,
@@ -209,7 +210,6 @@ const WrittingScreen = () => {
 };
 
 function createOptions(word, letter) {
-  console.log(word, letter);
   let vocals = ["a", "e", "i", "o", "u"];
   let index = vocals.indexOf(letter);
   let row = word.length <= 4 ? 2 : 3;
