@@ -77,7 +77,7 @@ const WrittingScreen = () => {
           currentX: positionX,
         },
       });
-      // playResponseAudio(response === option);
+      playResponseAudio(response === option);
 
       if (response === option && !stateDrag.lockResponse) {
         let numLetters = state.numLetters - 1;
