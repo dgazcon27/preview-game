@@ -69,8 +69,9 @@ const DragComponent = ({ children, styles, dragEndState, response }) => {
     }
 
     function drag(e) {
-      if (state.active) {
+      if (state.active && e.cancelable) {
         e.preventDefault();
+        e.stopPropagation();
         let currentX;
         let currentY;
         if (e.type === "touchmove") {
