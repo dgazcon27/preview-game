@@ -3,15 +3,16 @@ import { GameContext } from "../../context/GameContext";
 import { iconBack, logo } from "../../utils/imagesResources";
 import { useHistory } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ onGoBack }) => {
   const { state } = useContext(GameContext);
   const history = useHistory();
+
   return (
     <div>
       <header>
         <div className="headerBoxIcon">
           <img
-            onClick={() => history.goBack()}
+            onClick={onGoBack ? onGoBack : () => history.goBack()}
             className="iconBack"
             alt="iconBack"
             src={iconBack}

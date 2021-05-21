@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import "../../assets/styles/shared-screen.css";
 import logoFondoAzul from "../../assets/images/logoFondoAzul.svg";
 import gsap from "gsap";
+import Header from "./Header";
+import { useHistory } from "react-router-dom";
 
 const ComponentPortrait = () => {
   const [container, setContainer] = useState(initialHeight());
   const [isLandscape, setIsLandscape] = useState(getOrientation());
+  const history = useHistory();
+
   useEffect(() => {
     const updateScreenHeight = () => {
       let height = window.innerHeight;
@@ -50,15 +54,18 @@ const ComponentPortrait = () => {
   }, [container]);
 
   return (
-    <div className={` container-sup `}>
-      <div
-        className="container-second"
-        style={{ height: `${container.height2}px` }}
-      >
-        <img className="logo" src={logoFondoAzul} alt="logoKoala" />
-        <div className="text-box">
-          <p>¡Felicitaciones!</p>
-          <p>Lo has logrado</p>
+    <div>
+      <Header onGoBack={() => history.push("/")}></Header>
+      <div className={` container-sup `}>
+        <div
+          className="container-second"
+          style={{ height: `${container.height2}px` }}
+        >
+          <img className="logo" src={logoFondoAzul} alt="logoKoala" />
+          <div className="text-box">
+            <p>¡Felicitaciones!</p>
+            <p>Lo has logrado</p>
+          </div>
         </div>
       </div>
     </div>
