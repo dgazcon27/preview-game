@@ -148,6 +148,7 @@ export const vocalAUList = [
           id: getUId(),
           title: "Pares",
           img: iconopares,
+          link: "pares",
         },
       ],
       [

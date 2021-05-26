@@ -45,11 +45,6 @@ const ComponentPortrait = () => {
       duration: 1,
       opacity: 0,
     });
-    tl.from(".container-first", {
-      y: container.height2,
-      duration: 1,
-      opacity: 0,
-    });
     tl.from(".logo", { duration: 1, opacity: 0, scale: 0.5 });
   }, [container]);
 

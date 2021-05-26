@@ -10,11 +10,6 @@ import {
   oso,
   elefante,
   alas,
-  // astronauta,
-  // estrella,
-  // isla,
-  // uva,
-  // utiles,
 } from "../utils/imagesGames";
 
 import {
@@ -29,13 +24,11 @@ import {
   insectosSound,
   osoSound,
   alasSound,
-  // estrellaSound,
-  // islaSound,
-  // alasSound,
-  // astronautaSound,
-  // utilesSound,
-  // uvaSound,
 } from "../utils/sounds";
+
+export const getUniqueId = () => {
+  return Math.floor(Math.random() * new Date().getTime());
+};
 
 export const data = [
   {

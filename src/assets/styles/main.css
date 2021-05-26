@@ -42,7 +42,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1em;
+  padding: 1em 1em;
 }
 header img {
   width: 6em;
@@ -83,6 +83,12 @@ header img {
 
 .hidden {
   display: none !important;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 1200px) {

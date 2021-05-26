@@ -1,0 +1,58 @@
+.pwRow {
+  margin-bottom: 1.4em;
+}
+
+.pwImageCard {
+  width: 10em;
+  height: 10em;
+  background: white;
+  margin: 0 0.7em;
+  padding: 1em;
+  border-radius: 2em;
+  margin-bottom: 1em;
+}
+
+.coverImage {
+  padding: 0;
+  width: 12em;
+  height: 12em;
+}
+
+.hide {
+  opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .pwImageCard {
+    width: 9em;
+    height: 9em;
+  }
+
+  .coverImage {
+    width: 11em;
+    height: 11em;
+  }
+}
+@media screen and (max-width: 485px) {
+  .pwContainerItems {
+    display: flex;
+  }
+
+  .pwRow {
+    display: block;
+  }
+
+  .pwImageCard {
+    padding: 10px;
+    width: 85px;
+    height: 85px;
+  }
+
+  .coverImage {
+    padding: 0 !important;
+    width: 105px;
+    height: 105px;
+  }
+}
+
+/*# sourceMappingURL=pair-module.css.map */
