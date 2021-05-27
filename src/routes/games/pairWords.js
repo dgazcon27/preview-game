@@ -24,14 +24,57 @@ const PairWords = () => {
   const history = useHistory();
   const [playResponseAudio] = useResponseAudio();
 
-  const selectCard = (index) => {
-    let card = state.cards;
-    card[index].show = true;
-    setState({ ...state, open: state.open + 1, cards: card });
-  };
-
   const compareWords = (word1, word2) => {
     return word1.toLowerCase() === word2.toLowerCase();
+  };
+
+  const checkWords = () => {
+    const { cards } = state;
+    const list = cards.reduce((prev, item) => {
+      if (item.show && !item.check) prev.push(item);
+      return prev;
+    }, []);
+    if (list.length < 2) return;
+    let isCorrect = compareWords(list[0].name, list[1].name);
+    if (isCorrect) {
+      list[0].check = true;
+      list[1].check = true;
+    }
+
+    const cardState = {
+      ...state,
+      open: 0,
+      correct: isCorrect ? state.correct - 1 : state.correct,
+      cards: isCorrect
+        ? [...cards]
+        : state.cards.map((item) => ({ ...item, show: false })),
+    };
+    playResponseAudio(isCorrect);
+    isCorrect
+      ? setState(cardState)
+      : setTimeout(() => {
+          setState(cardState);
+        }, 1000);
+
+    dispatch({
+      type: "ADD_POINTS",
+      value: isCorrect ? 3 : -1,
+    });
+  };
+
+  const selectCard = (index) => {
+    let { cards, open, correct } = state;
+    cards[index].show = true;
+    if (open < 1) {
+      setState({ ...state, open: state.open + 1, cards });
+      return;
+    }
+    if (correct - 1 === 0) {
+      history.push("level-up");
+      return;
+    }
+
+    checkWords();
   };
 
   useEffect(() => {
@@ -39,47 +82,6 @@ const PairWords = () => {
       setState(initialState());
     }
   }, [state]);
-
-  useEffect(() => {
-    if (state.open === 2) {
-      let cards = [];
-      let list = [...state.cards];
-      cards = list.reduce((prev, item) => {
-        if (item.show && !item.check) prev.push(item);
-        return prev;
-      }, []);
-      let isCorrect = compareWords(cards[0].name, cards[1].name);
-      playResponseAudio(isCorrect);
-
-      const cardState = {
-        ...state,
-        open: 0,
-        correct: isCorrect ? state.correct - 1 : state.correct,
-        cards: isCorrect
-          ? list
-          : state.cards.map((item) => ({ ...item, show: false })),
-      };
-      if (isCorrect) {
-        cards[0].check = true;
-        cards[1].check = true;
-        list = [...list];
-      }
-      isCorrect
-        ? setState(cardState)
-        : setTimeout(() => {
-            setState(cardState);
-          }, 1000);
-
-      dispatch({
-        type: "ADD_POINTS",
-        value: isCorrect ? 3 : -1,
-      });
-    }
-
-    if (state.correct === 0) {
-      history.push("level-up");
-    }
-  }, [state, dispatch, history]);
 
   if (!state.loading) return <div></div>;
   return (
