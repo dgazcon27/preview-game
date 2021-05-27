@@ -49,12 +49,10 @@ const PairWords = () => {
         ? [...cards]
         : state.cards.map((item) => ({ ...item, show: false })),
     };
-    playResponseAudio(isCorrect);
-    isCorrect
-      ? setState(cardState)
-      : setTimeout(() => {
-          setState(cardState);
-        }, 1000);
+    setTimeout(() => {
+      playResponseAudio(isCorrect);
+      setState(cardState);
+    }, 1500);
 
     dispatch({
       type: "ADD_POINTS",
