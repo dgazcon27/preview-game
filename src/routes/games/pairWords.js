@@ -36,20 +36,20 @@ const PairWords = () => {
     }, []);
     if (list.length < 2) return;
     let isCorrect = compareWords(list[0].name, list[1].name);
-    if (isCorrect) {
-      list[0].check = true;
-      list[1].check = true;
-    }
 
-    const cardState = {
-      ...state,
-      open: 0,
-      correct: isCorrect ? state.correct - 1 : state.correct,
-      cards: isCorrect
-        ? [...cards]
-        : state.cards.map((item) => ({ ...item, show: false })),
-    };
     setTimeout(() => {
+      if (isCorrect) {
+        list[0].check = true;
+        list[1].check = true;
+      }
+      const cardState = {
+        ...state,
+        open: 0,
+        correct: isCorrect ? state.correct - 1 : state.correct,
+        cards: isCorrect
+          ? [...cards]
+          : state.cards.map((item) => ({ ...item, show: false })),
+      };
       playResponseAudio(isCorrect);
       setState(cardState);
     }, 1500);
@@ -132,7 +132,11 @@ const CardItem = ({ image, name, show, selectCard, check }) => {
 function initialState() {
   return {
     open: 0,
-    cards: getModuleData(),
+    cards: getModuleData().map((item) => ({
+      ...item,
+      check: false,
+      show: false,
+    })),
     correct: 4,
     loading: true,
   };

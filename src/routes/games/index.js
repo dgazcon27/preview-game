@@ -10,6 +10,7 @@ import ResponseComponent from "../../components/games/ResponseComponent";
 
 import Header from "../../components/shared/Header";
 import { data } from "../../utils/mocks";
+import { getData } from "../../utils/mockData/mockModule1";
 import "../../assets/styles/games.css";
 import "../../assets/styles/main.css";
 import CongratulationScreen from "../../components/shared/CongratulationScreen";
@@ -28,10 +29,11 @@ const Games = () => {
     word2: false,
   });
   const [transition, setTransition] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [list, setList] = useState([]);
+  const [current, setCurrent] = useState({});
   const boxResponse1 = useRef(null);
   const boxResponse2 = useRef(null);
-
-  const list = data[position];
 
   const playSound = (sound) => {
     let snd = new Audio(sound);
@@ -40,19 +42,19 @@ const Games = () => {
 
   useEffect(() => {
     if (statusWord.word1 && statusWord.word2) {
-      // setList(data[position + 1]);
-      if (position + 1 < data.length) {
+      if (position + 1 < list.length) {
         setPosition(position + 1);
         setStatusWord({
           word1: false,
           word2: false,
         });
+        setCurrent(list[position + 1]);
         setTransition(true);
       } else {
-        setIsLevelUp(true);
+        history.push("level-up");
       }
     }
-  }, [statusWord, position, history]);
+  }, [statusWord, position, history, list]);
 
   useEffect(() => {
     if (transition) {
@@ -67,6 +69,17 @@ const Games = () => {
       });
     }
   }, [transition]);
+
+  useEffect(() => {
+    let x = getData();
+    x.then(function (data) {
+      setList(data);
+      setCurrent(data[0]);
+      setIsLoading(true);
+    });
+  }, []);
+
+  if (!isLoading) return <div></div>;
 
   return (
     <div
@@ -90,62 +103,61 @@ const Games = () => {
           <div className="cardImage">
             <img
               className="imageCard"
-              src={list.word1.image}
-              alt={list.word1.name}
+              src={current.word1.image}
+              alt={current.word1.name}
             />
           </div>
           <ResponseComponent
             reference={boxResponse1}
-            word={list.word1.name}
+            word={current.word1.name}
             styles="containerResponse"
             position="word1"
           />
         </div>
         <div className={`${isLevelUp ? "hidden" : ""} containerWords`}>
           <DragComponent
-            word={list.word2.name}
+            word={current.word2.name}
             divResponse={[boxResponse1, boxResponse2]}
             setStatusWord={setStatusWord}
             statusWord={statusWord}
           >
             <img
-              onClick={() => playSound(list.word2.sound)}
+              onClick={() => playSound(current.word2.sound)}
               src={iconSoundWhite}
               alt="iconSound"
             />
-            <h3>{list.word2.name}</h3>
+            <h3>{current.word2.name}</h3>
           </DragComponent>
           <DragComponent
-            word={list.word1.name}
+            word={current.word1.name}
             divResponse={[boxResponse1, boxResponse2]}
             setStatusWord={setStatusWord}
             statusWord={statusWord}
           >
             <img
-              onClick={() => playSound(list.word1.sound)}
+              onClick={() => playSound(current.word1.sound)}
               src={iconSoundWhite}
               alt="iconSound"
             />
-            <h3>{list.word1.name}</h3>
+            <h3>{current.word1.name}</h3>
           </DragComponent>
         </div>
         <div className="containerOptions">
           <div className="cardImage">
             <img
               className="imageCard"
-              src={list.word2.image}
-              alt={list.word2.name}
+              src={current.word2.image}
+              alt={current.word2.name}
             />
           </div>
           <ResponseComponent
             reference={boxResponse2}
-            word={list.word2.name}
+            word={current.word2.name}
             styles="containerResponse"
             position="word2"
           />
         </div>
       </div>
-      <CongratulationScreen isVisible={isLevelUp}></CongratulationScreen>
     </div>
   );
 };

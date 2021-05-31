@@ -12,6 +12,7 @@ import {
 } from "../../components/games/CardComponent";
 import { useResponseAudio } from "../../hooks/usePlaySounds";
 
+import { getData } from "../../utils/mockData/mockModule2";
 import { mockAudioData } from "../../utils/mocks";
 import { useSetBackGround } from "../../hooks/useSetBackGround";
 import backGround from "../../assets/images/fondoModEscGranAlto.svg";
@@ -20,29 +21,10 @@ export const AudioScreen = () => {
 
   const [playResponseAudio] = useResponseAudio();
   const [transition, setTransition] = useState(false);
-  const [state, setState] = useState({
-    words: mockAudioData,
-    current: mockAudioData[0],
-    response: "a",
-    checked: 0,
-    position: 0,
-    spring: 0,
-  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [state, setState] = useState({});
   const { dispatch } = useContext(GameContext);
   const history = useHistory();
-  useEffect(() => {
-    if (transition) {
-      let tl = gsap.timeline();
-      tl.from(".containerBox", {
-        duration: 1,
-        opacity: 0,
-        x: window.innerWidth,
-        onComplete: function () {
-          setTransition(false);
-        },
-      });
-    }
-  }, [transition]);
 
   const checkWord = (e, cardState, setCardState) => {
     let word = e.target.alt || e.target.dataset.word;
@@ -70,6 +52,34 @@ export const AudioScreen = () => {
   };
 
   useEffect(() => {
+    getData().then((data) => {
+      setState({
+        words: data,
+        current: data[0],
+        response: "a",
+        checked: 0,
+        position: 0,
+        spring: 0,
+      });
+      setIsLoading(true);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (transition) {
+      let tl = gsap.timeline();
+      tl.from(".containerBox", {
+        duration: 1,
+        opacity: 0,
+        x: window.innerWidth,
+        onComplete: function () {
+          setTransition(false);
+        },
+      });
+    }
+  }, [transition]);
+
+  useEffect(() => {
     let status = { ...state };
     if (status.spring === 2 || status.checked === 3) {
       if (status.position + 1 < status.words.length) {
@@ -88,6 +98,8 @@ export const AudioScreen = () => {
       }
     }
   }, [state, history]);
+
+  if (!isLoading) return <div></div>;
 
   return (
     <div

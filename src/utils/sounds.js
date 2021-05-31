@@ -28,6 +28,7 @@ import insectosSound from "../assets/sounds/insectos.mp3";
 import osoSound from "../assets/sounds/oso.mp3";
 import utilesSound from "../assets/sounds/utiles.mp3";
 import uvaSound from "../assets/sounds/uva.mp3";
+import unicornioSound from "../assets/sounds/unicornio.mp3";
 
 export {
   arbolSound,
@@ -46,6 +47,7 @@ export {
   osoSound,
   utilesSound,
   uvaSound,
+  unicornioSound,
 };
 export const goodAnswer = [audio1, audio2, siAudio3, siAudio4, siAudio5].sort(
   () => Math.random() - 0.5

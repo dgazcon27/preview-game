@@ -17,6 +17,7 @@ import isla from "../assets/images/games/isla.svg";
 import oso from "../assets/images/games/oso.svg";
 import uva from "../assets/images/games/uva.svg";
 import utiles from "../assets/images/games/utiles.svg";
+import unicornio from "../assets/images/games/unicornio.svg";
 
 // Exporting games resources
 
@@ -37,4 +38,5 @@ export {
   oso,
   uva,
   utiles,
+  unicornio,
 };

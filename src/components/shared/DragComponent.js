@@ -40,9 +40,7 @@ const DragComponent = ({ children, styles, dragEndState, response }) => {
         initialX = e.clientX - state.xOffset;
         initialY = e.clientY - state.yOffset;
       }
-      if (e.target === dragItem) {
-        active = true;
-      }
+      active = true;
       dispatchDrag({
         type: "START_DRAG",
         data: {
